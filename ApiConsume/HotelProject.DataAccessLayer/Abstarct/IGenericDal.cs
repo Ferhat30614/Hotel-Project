@@ -9,7 +9,7 @@ namespace HotelProject.DataAccessLayer.Abstarct
     public interface IGenericDal<T> where T:class
     {
 
-        void Insert(T t);
+        void Insert(T t);//asxk askx
         void Uptade(T t);
         void Delete(T t);
 
