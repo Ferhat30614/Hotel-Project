@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HotelProject.DataAccessLayer.Abstarct
 {
-    internal interface ITestimonialDal:IGenericDal<Testimonial>
+    public interface ITestimonialDal:IGenericDal<Testimonial>
     {
     }
 }
