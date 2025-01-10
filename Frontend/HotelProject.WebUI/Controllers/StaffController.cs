@@ -22,7 +22,7 @@ namespace HotelProject.WebUI.Controllers
             {
 
                 var jsonData=await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<StaffModelcs>>(jsonData);
+                var values = JsonConvert.DeserializeObject<List<StaffModel>>(jsonData);
                 return View(values);
 
             }
