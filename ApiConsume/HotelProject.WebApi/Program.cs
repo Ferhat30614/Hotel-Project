@@ -35,7 +35,7 @@ builder.Services.AddScoped<ISubscribeService, SubscribeManager>();
 builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
 builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
 
-// builder.Services.AddAutoMapper(typeof(AutoMapperConfig));
+builder.Services.AddAutoMapper(typeof(AutoMapperConfig));
 
 builder.Services.AddCors(opt=>
 {
