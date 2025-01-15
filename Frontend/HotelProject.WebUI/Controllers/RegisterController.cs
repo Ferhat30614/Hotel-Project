@@ -1,4 +1,5 @@
 ﻿using HotelProject.EntityLayer.Concrete;
+using HotelProject.WebUI.Dtos.RegisterDto;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,9 +24,33 @@ namespace HotelProject.WebUI.Controllers
 
 
         [HttpPost]
-        public IActionResult Index()
+        public async Task<IActionResult> Index(CreateNewUserDto createNewUserDto)
         {
+
+            if (!ModelState.IsValid)
+            {
+                return View();                        
+            }
+
+            AppUser appUser = new AppUser()
+            {             
+                Name=createNewUserDto.Name,
+                Email=createNewUserDto.Mail,
+                Surname=createNewUserDto.Surname,   
+                UserName=createNewUserDto.Username
+            };
+
+            var result = await _userManager.CreateAsync(appUser,createNewUserDto.Password);
+            if (result.Succeeded) 
+            { 
+            
+                return RedirectToAction("Index","Login");
+
+            }
+            
+
             return View();
         }
+
     }
 }
