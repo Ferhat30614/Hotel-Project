@@ -1,6 +1,7 @@
 ﻿using HotelProject.WebUI.Dtos.ServiceDto;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Text;
 
 namespace HotelProject.WebUI.Controllers
@@ -106,7 +107,7 @@ namespace HotelProject.WebUI.Controllers
                 var dataJson = await responseMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<UpdateServiceDto>(dataJson);
 
-                return View(values);
+                return View(values);//  burdaki valuesi aşşada nasıl yollayacam
 
             }
             return View();
@@ -117,10 +118,10 @@ namespace HotelProject.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateService(UpdateServiceDto updateServiceDto)
         {
-            if (!ModelState.IsValid) 
+            if (!ModelState.IsValid)
             {
 
-                return View();
+                return View(updateServiceDto);//buraya values bu değişkenş model olarak göndermek istiyorum nasıl yapcam?
 
 
             }

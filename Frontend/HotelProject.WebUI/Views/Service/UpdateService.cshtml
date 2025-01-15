@@ -9,7 +9,7 @@
 
 <form method="post">
 
-    <input type="hidden" name="ServiceID" value="@Model.ServiceID" />
+    <input type="hidden" name="ServiceID" value="@Model?.ServiceID" />
 
     <label>Hizmet iconu</label>
     <input type="text" name="ServiceIcon"  class="form-control  " />
@@ -17,12 +17,12 @@
     <br />
 
     <label>Hizmet Başlığı</label>
-    <input type="text" name="Title" value="@Model.Title" class="form-control " />
+    <input type="text" name="Title" class="form-control"  />
     <span asp-validation-for="Title" class="text-info"></span>
     <br />
 
     <label>Açıklama</label>
-    <input type="text" name="Description" value="@Model.Description" class="form-control " />
+    <input type="text" name="Description" class="form-control "  />
     <span asp-validation-for="Description"  class="text-info"></span>
     <br />
 
