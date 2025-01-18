@@ -14,7 +14,9 @@ namespace HotelProject.WebUI.Mapping
             CreateMap<Service, ResultServiceDto>().ReverseMap();
             CreateMap<Service, UpdateServiceDto>().ReverseMap();
 
-            CreateMap<AppUser,CreateNewUserDto>().ReverseMap();
+            //CreateMap<AppUser,CreateNewUserDto>().ReverseMap();//uygulamayı denerken
+                                                               //bunu bi silmeyi denem bakalım hata vercekmi
+
         }
 
     }

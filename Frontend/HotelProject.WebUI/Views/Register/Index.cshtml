@@ -4,8 +4,6 @@
 }
 
 
-
-
 <!DOCTYPE html>
 <html class="h-100" lang="en">
 
@@ -35,7 +33,7 @@
     </div>
     <!--*******************
         Preloader end
-    
+    ********************-->
 
 
 
@@ -51,19 +49,32 @@
 
                                 <a class="text-center" href="index.html"> <h4>Otel Giriş Paneli</h4></a>
 
-                                <form class="mt-5 mb-5 login-input">
+                                <form class="mt-5 mb-5 login-input" method="post">
+
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Name" required>
+                                        <input type="text" class="form-control" placeholder="Adınız"  asp-for="Name">
+                                        <span  asp-validation-for="Name" class="text-warning" ></span>
                                     </div>
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Email" required>
+                                     <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="soyadınız"  asp-for="Surname">
+                                        <span  asp-validation-for="Surname" class="text-warning" ></span>
                                     </div>
-                                    <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Password" required>
+                                     <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="kullanıcı Adınız"  asp-for="Username">
+                                        <span  asp-validation-for="Username" class="text-warning" ></span>
                                     </div>
-                                    <button class="btn login-form__btn submit w-100">Sign in</button>
+                                     <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Mail adresiniz"  asp-for="Mail">
+                                        <span  asp-validation-for="Mail" class="text-warning" ></span>
+                                    </div>
+                                     <div class="form-group">
+                                        <input type="Password" class="form-control" placeholder="Şifreniz"  asp-for="Password">
+                                        <span  asp-validation-for="Password" class="text-warning" ></span>
+                                    </div>
+
+                                    <button class="btn login-form__btn submit w-100">Kayıt Ol!</button>
                                 </form>
-                                <p class="mt-5 login-form__footer">Have account <a href="page-login.html" class="text-primary">Sign Up </a> now</p>
+                                <p class="mt-5 login-form__footer">Bir Hesabın var mı?<a href="/Login/Index/" class="text-primary">Oturum Aç</a></p>
                                 </p>
                             </div>
                         </div>
@@ -72,11 +83,7 @@
             </div>
         </div>
     </div>
-    </div>
-
-
-
-
+  
     <!--**********************************
         Scripts
     ***********************************-->
