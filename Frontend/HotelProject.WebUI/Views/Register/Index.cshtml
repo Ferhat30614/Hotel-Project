@@ -71,6 +71,10 @@
                                         <input type="Password" class="form-control" placeholder="Şifreniz"  asp-for="Password">
                                         <span  asp-validation-for="Password" class="text-warning" ></span>
                                     </div>
+                                    <div class="form-group">
+                                        <input type="Password" class="form-control" placeholder="Şifrenizi tekrar giriniz..." asp-for="ConfirmPassword">
+                                        <span asp-validation-for="ConfirmPassword" class="text-warning"></span>
+                                    </div>
 
                                     <button class="btn login-form__btn submit w-100">Kayıt Ol!</button>
                                 </form>
