@@ -42,11 +42,13 @@ namespace HotelProject.WebUI.Controllers
 
             if (responseMessage.IsSuccessStatusCode)
             {
+                Console.WriteLine("Sayfa yönlendirmesi tamam hacı....");
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Default");
 
             }
 
+            Console.WriteLine("Hata var dostum partial viewew geldi");
             return PartialView();
 
         }
