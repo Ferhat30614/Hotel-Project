@@ -3,13 +3,57 @@
     Layout = null;
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
+
+<!DOCTYPE html>
+<html lang="en">
+
+@await Component.InvokeAsync("_HeadPartial")
+
 <body>
+    <div class="container-xxl bg-white p-0">
+
+        @await Component.InvokeAsync("_SpinnerPartial")
+
+        @await Component.InvokeAsync("_NavbarPartial")
+
+        <div class="container-fluid page-header mb-5 p-0" style="background-image: url(img/carousel-1.jpg);">
+            <div class="container-fluid page-header-inner py-5">
+                <div class="container text-center pb-5">
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">Booking</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center text-uppercase">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">Booking</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        @await Component.InvokeAsync("_ReservationPartial")
+
+        @await Component.InvokeAsync("_AboutUsPartial")
+
+        @await Component.InvokeAsync("_OurRoomsPartial")
+
+        @await Component.InvokeAsync("_TrailerPartial")
+
+        @await Component.InvokeAsync("_ServicePartial")
+
+        @await Component.InvokeAsync("_TestimonialPartial")
+
+        @await Component.InvokeAsync("_TeamPartial")
+
+        <!-- Newsletter Start -->
+        @await Html.PartialAsync("/Views/Default/_SubscribePartial.cshtml") // views componentlerde gerek yoktu ama bu noormal partial oldugu için yadık
+        <!-- Newsletter Start -->
+        @await Component.InvokeAsync("_FooterPartial")
+
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+    @await Component.InvokeAsync("_ScriptsPartial")
 </body>
+
 </html>
