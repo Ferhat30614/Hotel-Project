@@ -49,7 +49,7 @@ namespace HotelProject.WebUI.Controllers
             }
 
             Console.WriteLine("Hata var dostum partial viewew geldi");
-            return PartialView();
+            return PartialView(); 
 
         }
 
