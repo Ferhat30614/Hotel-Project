@@ -22,6 +22,11 @@
                             <th>Giriş Tarihi</th>
                             <th>Çıkış Tarihi</th>
                             <th>Durum</th>
+                            <th>Onayla</th>
+                            <th>İptal Et</th>
+                            <th>Beklet</th>
+                            <th>Güncelle</th>
+                            <th>Detaylar</th>
 
                         </tr>
                     </thead>
@@ -33,11 +38,17 @@
                                 <th>@count</th>
                                 <td>@item.Name</td>
                                 
-                                <td>January 22</td>
-                                <td class="color-primary">$21.56</td>
+                                <td>@item.Checkin</td>
+                                <td>@item.CheckOut</td>
                                 <td>
-                                    <span class="badge badge-primary px-2">Sale</span>
+                                    <span class="badge badge-primary px-2">@item.Status</span>
                                 </td>
+                                <td><a href="#" class="btn btn-outline-primary">Onayla</a></td>
+                                <td><a href="#" class="btn btn-outline-danger">İptal Et</a></td>
+                                <td><a href="#" class="btn btn-outline-warning">Beklet</a></td>
+                                <td><a href="#" class="btn btn-outline-info">Güncelle</a></td>
+                                <td><a href="#" class="btn btn-outline-dark">Detaylar</a></td>
+                                
                             </tr>
                         }
                         
