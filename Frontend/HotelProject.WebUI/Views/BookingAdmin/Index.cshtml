@@ -34,8 +34,8 @@
                                 <th>@count</th>
                                 <td>@item.Name</td>
                                 
-                                <td>@item.Checkin</td>
-                                <td>@item.CheckOut</td>
+                                <td>@(((DateTime)item.Checkin).ToString("dd-MMM-yyyy"))</td>
+                                <td>@(((DateTime)item.CheckOut).ToString("dd-MMM-yyyy"))</td>
                                 <td>
                                     <span class="badge badge-primary px-2">@item.Status</span>
                                 </td>
