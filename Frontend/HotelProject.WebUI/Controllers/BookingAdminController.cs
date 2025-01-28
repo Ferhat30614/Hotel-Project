@@ -39,18 +39,12 @@ namespace HotelProject.WebUI.Controllers
 
         public async Task<IActionResult> ApprovedReservation(ApprovedReservationDto approvedReservationDto)
         {
-            approvedReservationDto.Status = "Onaylandı";
-
-
-            Console.WriteLine(approvedReservationDto.Status + " " + approvedReservationDto.BookingID + " değerler bu sekilde değişir ");
-
-
 
             var client = _httpClientFactory.CreateClient();
             var dataJson = JsonConvert.SerializeObject(approvedReservationDto);
             StringContent stringContent = new StringContent(dataJson, Encoding.UTF8, "application/json");
 
-            var responseMessage = await client.PutAsync($"http://localhost:5045/api/Booking/", stringContent);
+            var responseMessage = await client.PutAsync($"http://localhost:5045/api/Booking/aaaa", stringContent);
 
             if (responseMessage.IsSuccessStatusCode)
             {
@@ -62,5 +56,6 @@ namespace HotelProject.WebUI.Controllers
             return RedirectToAction("Index");
 
         }
-
+        
     }
+}
