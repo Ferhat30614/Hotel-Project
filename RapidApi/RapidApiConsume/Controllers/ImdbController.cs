@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using RapidApiConsume.Models;
 
 namespace RapidApiConsume.Controllers
 {
@@ -6,6 +8,7 @@ namespace RapidApiConsume.Controllers
     {
         public async Task<IActionResult> Index()
         {
+            List<ApiMovieViewModel> apiMovieViewModels=new List<ApiMovieViewModel>();
             var client = new HttpClient();
             var request = new HttpRequestMessage
             {
@@ -21,9 +24,10 @@ namespace RapidApiConsume.Controllers
             {
                 response.EnsureSuccessStatusCode();
                 var body = await response.Content.ReadAsStringAsync();
-            }
+                apiMovieViewModels = JsonConvert.DeserializeObject<List<ApiMovieViewModel>>(body);
+                return View(apiMovieViewModels);
 
-            return View();
+            }
         }
     }
 }
