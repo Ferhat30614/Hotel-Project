@@ -27,7 +27,11 @@ namespace HotelProject.DataAccessLayer.EntitiyFramework
 
         public void BookingStatusChangeApproved2(int id)
         {
-            throw new NotImplementedException();
+            Context context = new Context();
+            var values = context.Bookings.Find(id);
+            values.Status = "Onaylandı";
+            context.SaveChanges();
+
         }
     }
 }
