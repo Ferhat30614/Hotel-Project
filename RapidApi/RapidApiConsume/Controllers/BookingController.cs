@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using RapidApiConsume.Models;
 
 namespace RapidApiConsume.Controllers
 {
@@ -22,8 +24,10 @@ namespace RapidApiConsume.Controllers
             {
                 response.EnsureSuccessStatusCode();
                 var body = await response.Content.ReadAsStringAsync();
-                Console.WriteLine(body);
+                var values = JsonConvert.DeserializeObject<BookingApiViewModel>(body);
+                return View(values.data.hotels.ToList());
             }
         }
+
     }
 }
