@@ -1,0 +1,45 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+
+
+
+Search view sayfa 
+
+
+@model List<BookingApiLocationSearchViewModel.Datum>
+
+
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+
+    <br /><br />
+    <table class="table table-bordered">
+        <tr>
+            <th>xxx</th>
+
+        </tr>
+
+        <tr>
+
+            @foreach (var item in Model) {
+                <td>@item.dest_id</td>
+            }
+            
+            
+            
+
+       </tr>
+        
+            
+        
+
+    </table>
+
+</div>
+
