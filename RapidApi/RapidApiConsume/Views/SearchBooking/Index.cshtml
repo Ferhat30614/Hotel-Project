@@ -3,10 +3,6 @@
     Layout = null;
 }
 
-
-
-
-
 Search view sayfa 
 
 
@@ -19,6 +15,13 @@ Search view sayfa
 <div class="container">
 
     <br /><br />
+    @using (Html.BeginForm("Index", "SearchBooking",FormMethod.Post)){
+        <label>Şehir adını giriniz</label>
+        <input type="text" class="form-control" name="cityname"/>
+        <button class="btn btn-primary">Şehir için id bul</button>
+    }
+
+
     <table class="table table-bordered">
         <tr>
             <th>xxx</th>
@@ -30,16 +33,12 @@ Search view sayfa
             @foreach (var item in Model) {
                 <td>@item.dest_id</td>
             }
-            
-            
-            
 
        </tr>
-        
-            
-        
 
     </table>
+
+    <a href="///" class="btn btn-dark">Yeni otel rezervasyon bilgisi</a>
 
 </div>
 

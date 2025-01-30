@@ -6,46 +6,63 @@ namespace RapidApiConsume.Controllers
 {
     public class SearchBookingController : Controller
     {
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string cityname)
         {
-            List<BookingApiLocationSearchViewModel> model = new List<BookingApiLocationSearchViewModel>(); 
-            var client = new HttpClient();
-            var request = new HttpRequestMessage
+
+            if (!string.IsNullOrEmpty(cityname))
             {
-                Method = HttpMethod.Get,
-                RequestUri = new Uri("https://booking-com15.p.rapidapi.com/api/v1/hotels/searchDestination?query=Paris"),
-                Headers =
+                List<BookingApiLocationSearchViewModel> model = new List<BookingApiLocationSearchViewModel>();
+                var client = new HttpClient();
+                var request = new HttpRequestMessage
+                {
+                    Method = HttpMethod.Get,
+                    RequestUri = new Uri($"https://booking-com15.p.rapidapi.com/api/v1/hotels/searchDestination?query={cityname}"),
+                    Headers =
     {
         { "x-rapidapi-key", "6b99735555msh46fe40a0ee44ff2p1db52bjsnc05306989038" },
         { "x-rapidapi-host", "booking-com15.p.rapidapi.com" },
     },
-            };
-            using (var response = await client.SendAsync(request))
-            {
-                response.EnsureSuccessStatusCode();
-                var body = await response.Content.ReadAsStringAsync();        
-                
-                var values= JsonConvert.DeserializeObject<BookingApiLocationSearchViewModel>(body);
+                };
+                using (var response = await client.SendAsync(request))
+                {
+                    response.EnsureSuccessStatusCode();
+                    var body = await response.Content.ReadAsStringAsync();
 
-              
-
-                var message = values.data;
-
-                
-
-                
+                    var values = JsonConvert.DeserializeObject<BookingApiLocationSearchViewModel>(body);
 
 
 
-               
+                    return View(values.data.Take(1).ToList());
+                }
 
-                
-               
-                
 
-              
-                return View(message.Take(1).ToList());
-                // neden to list//neden data bir liste givbi davranıyor vs ??? ve tollist yerine IEnumerable da kullanılabiliyor
+
+            }
+            else {
+                List<BookingApiLocationSearchViewModel> model = new List<BookingApiLocationSearchViewModel>();
+                var client = new HttpClient();
+                var request = new HttpRequestMessage
+                {
+                    Method = HttpMethod.Get,
+                    RequestUri = new Uri("https://booking-com15.p.rapidapi.com/api/v1/hotels/searchDestination?query=Paris"),
+                    Headers =
+    {
+        { "x-rapidapi-key", "6b99735555msh46fe40a0ee44ff2p1db52bjsnc05306989038" },
+        { "x-rapidapi-host", "booking-com15.p.rapidapi.com" },
+    },
+                };
+                using (var response = await client.SendAsync(request))
+                {
+                    response.EnsureSuccessStatusCode();
+                    var body = await response.Content.ReadAsStringAsync();
+
+                    var values = JsonConvert.DeserializeObject<BookingApiLocationSearchViewModel>(body);
+
+
+
+                    return View(values.data.Take(1).ToList());
+                }
+
 
             }
         }
