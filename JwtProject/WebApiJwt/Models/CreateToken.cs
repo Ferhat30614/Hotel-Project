@@ -12,7 +12,7 @@ namespace WebApiJwt.Models
             SymmetricSecurityKey key = new SymmetricSecurityKey(bytes);
             SigningCredentials credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);//burdada sifreleme algoritamamısı vs gridik
             JwtSecurityToken token = new JwtSecurityToken(issuer:"http://localhost",audience: "http://localhost",
-                notBefore:DateTime.Now,expires:DateTime.Now.AddMinutes(3),signingCredentials:credentials);
+                notBefore:DateTime.Now,expires:DateTime.Now.AddMinutes(1),signingCredentials:credentials);
 
             JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
             return handler.WriteToken(token);

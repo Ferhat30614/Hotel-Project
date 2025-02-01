@@ -15,6 +15,9 @@ namespace WebApiJwt.Controllers
         {
             return Ok(new CreateToken().TokenCreate());
         }
+
+
+
         [Authorize]
         [HttpGet("[Action]")]
         public IActionResult Test2()
