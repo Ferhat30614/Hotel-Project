@@ -8,7 +8,7 @@ namespace WebApiJwt.Models
     {
         public string TokenCreate() {
 
-            var bytes = Encoding.UTF8.GetBytes("aspnetcoreapiapi");
+            var bytes = Encoding.UTF8.GetBytes("aspnetcoreapiapiaspnetcoreapiapi");
             SymmetricSecurityKey key = new SymmetricSecurityKey(bytes);
             SigningCredentials credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);//burdada sifreleme algoritamamısı vs gridik
             JwtSecurityToken token = new JwtSecurityToken(issuer:"http://localhost",audience: "http://localhost",
