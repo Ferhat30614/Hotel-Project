@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApiJwt.Models;
@@ -17,9 +18,26 @@ namespace WebApiJwt.Controllers
         }
 
 
+        [HttpGet("[Action]")]
+        public IActionResult AdminTokenOlustur()
+        {
+            return Ok(new CreateToken().AdminTokenCreate());
+        }
+
+
         [Authorize]
         [HttpGet("[Action]")]
         public IActionResult Test2()
+        {
+            return Ok("Hoşgeldiniz...");
+        }
+
+
+
+
+        [Authorize(Roles = "Admin,Visitor")]
+        [HttpGet("[Action]")]
+        public IActionResult Test3()
         {
             return Ok("Hoşgeldiniz...");
         }

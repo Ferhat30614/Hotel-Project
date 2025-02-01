@@ -35,12 +35,17 @@ namespace WebApiJwt.Models
 
             };
 
+            JwtSecurityToken token = new JwtSecurityToken(issuer:"http://localhost",audience:"http://localhost",
+                notBefore:DateTime.Now,expires:DateTime.Now.AddSeconds(30),signingCredentials:credentials,claims:claims);
+
+            JwtSecurityTokenHandler handler=new JwtSecurityTokenHandler();
 
 
 
 
 
-            return "merhaba";
+
+            return handler.WriteToken(token);
         }
     }
 }
