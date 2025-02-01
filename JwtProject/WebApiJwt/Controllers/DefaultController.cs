@@ -17,7 +17,6 @@ namespace WebApiJwt.Controllers
         }
 
 
-
         [Authorize]
         [HttpGet("[Action]")]
         public IActionResult Test2()
