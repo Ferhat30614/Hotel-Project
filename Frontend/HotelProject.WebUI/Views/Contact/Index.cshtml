@@ -16,12 +16,8 @@
 
         @await Component.InvokeAsync("_NavbarPartial")
 
-
-
         @await Component.InvokeAsync("_ContactCoverPartial")
         @await Html.PartialAsync("/Views/Contact/SendMessage.cshtml")
-
-
 
         <!-- Newsletter Start -->
         @await Html.PartialAsync("/Views/Default/_SubscribePartial.cshtml") // views componentlerde gerek yoktu ama bu noormal partial oldugu için yadık

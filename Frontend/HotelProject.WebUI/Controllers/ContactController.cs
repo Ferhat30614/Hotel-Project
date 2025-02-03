@@ -50,8 +50,9 @@ namespace HotelProject.WebUI.Controllers
             }
             else
             {
-                return View();
                 Console.WriteLine("bi sorun var");
+                return View();
+                
 
             }
 
