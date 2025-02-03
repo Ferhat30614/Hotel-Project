@@ -18,8 +18,6 @@ namespace HotelProject.WebApi.Controllers
             _contactService = contactService;
         }
 
-
-
         [HttpPost]
         public IActionResult AddContact(Contact contact)
         {
