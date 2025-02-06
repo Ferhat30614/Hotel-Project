@@ -106,17 +106,29 @@ namespace HotelProject.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateRoom(UptadeRoomDto uptadeRoomDto)
         {
+           
+
+            Console.WriteLine(uptadeRoomDto.RoomID);
+            Console.WriteLine(uptadeRoomDto.RoomNumber);
+            Console.WriteLine(uptadeRoomDto.RoomCoverImage);
+            Console.WriteLine(uptadeRoomDto.Price);
+            Console.WriteLine(uptadeRoomDto.Title);
+            Console.WriteLine(uptadeRoomDto.BedCount);
+            Console.WriteLine(uptadeRoomDto.BathCount);
+            Console.WriteLine(uptadeRoomDto.Wifi);
+            Console.WriteLine(uptadeRoomDto.Description);
 
             var client = _httpClientFactory.CreateClient();
             var dataJson = JsonConvert.SerializeObject(uptadeRoomDto);
             StringContent stringContent = new StringContent(dataJson, Encoding.UTF8, "application/json");
 
             var responseMessage = await client.PutAsync($"http://localhost:5045/api/Room/", stringContent);
+            Console.WriteLine("respoınse mesag ne durumda");
 
             if (responseMessage.IsSuccessStatusCode)
             {
 
-
+                Console.WriteLine("Updade tarafı calısıyor");
                 return RedirectToAction("Index");
 
 
