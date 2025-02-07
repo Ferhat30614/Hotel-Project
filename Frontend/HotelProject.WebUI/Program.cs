@@ -8,7 +8,7 @@ using HotelProject.WebUI.ValidationRukes.GuestValidationRules;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddTransient<IValidator<CreateGuestDto>,CreateGuestValidator>();
+builder.Services.AddTransient<IValidator<CreateGuestDto>, CreateGuestValidator>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews().AddFluentValidation();
