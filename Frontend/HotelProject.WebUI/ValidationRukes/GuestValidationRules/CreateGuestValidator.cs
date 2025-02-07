@@ -15,8 +15,8 @@ namespace HotelProject.WebUI.ValidationRukes.GuestValidationRules
             RuleFor(x => x.Surname).NotEmpty().WithMessage("Soyisim Alanı Boş geçilemez");
             RuleFor(x => x.City).NotEmpty().WithMessage("Şehir Alanı Boş geçilemez");
 
-            RuleFor(x => x.Name).MinimumLength(3).WithMessage("İsim Alanı en az 3 karakter olcak");
-            RuleFor(x => x.Surname).MinimumLength(2).WithMessage("Soyisim Alanı en az 3 karakter olcak");
+            RuleFor(x => x.Name).MinimumLength(2).WithMessage("İsim Alanı en az 2 karakter olcak");
+            RuleFor(x => x.Surname).MinimumLength(2).WithMessage("Soyisim Alanı en az 2 karakter olcak");
             RuleFor(x => x.City).MinimumLength(3).WithMessage("Şehir Alanı en az 3 karakter olcak");
 
             RuleFor(x => x.Name).MaximumLength(20).WithMessage("İsim Alanı en fazla 20 karakter olcak");

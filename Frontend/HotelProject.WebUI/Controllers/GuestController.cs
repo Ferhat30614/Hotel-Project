@@ -45,22 +45,29 @@ namespace HotelProject.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> AddGuest(CreateGuestDto model)
         {
-            var client = _httpClientFactory.CreateClient();
-
-            var jsondata = JsonConvert.SerializeObject(model);
-
-            StringContent stringContent = new StringContent(jsondata, Encoding.UTF8, "application/json");
-
-            var responseMessage = await client.PostAsync("http://localhost:5045/api/Guest", stringContent);
-
-            if (responseMessage.IsSuccessStatusCode)
+            if (ModelState.IsValid)
             {
+                var client = _httpClientFactory.CreateClient();
 
-                return RedirectToAction("Index");
+                var jsondata = JsonConvert.SerializeObject(model);
 
+                StringContent stringContent = new StringContent(jsondata, Encoding.UTF8, "application/json");
+
+                var responseMessage = await client.PostAsync("http://localhost:5045/api/Guest", stringContent);
+
+                if (responseMessage.IsSuccessStatusCode)
+                {
+
+                    return RedirectToAction("Index");
+
+                }
+                return View();
             }
+            else {             
+                return View();
+            }
+            
 
-            return View();
 
 
         }
