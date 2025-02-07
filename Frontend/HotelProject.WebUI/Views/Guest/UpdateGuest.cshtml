@@ -1,15 +1,20 @@
-﻿@{
-    ViewData["Title"] = "AddGuest";
+﻿
+@{
+    ViewData["Title"] = "UpdateGuest";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
 }
 
-@model CreateGuestDto
+
+@model UpdateGuestDto
 
 <form method="post">
 
+
+    <input type="hidden" asp-for="GuestID " />
+    
     <label>Ad</label>
     <input type="text" asp-for="Name" class="form-control " />
-    <span asp-validation-for="Name" class="text-danger" ></span>
+    <span asp-validation-for="Name" class="text-danger"></span>
     <br />
 
     <label>Soyad</label>
@@ -18,12 +23,12 @@
     <br />
 
     <label>Şehir</label>
-    <input type="text" asp-for="City"   class="form-control " />
+    <input type="text" asp-for="City" class="form-control " />
     <span asp-validation-for="City" class="text-danger"></span>
     <br />
 
 
-    <button class="btn btn-primary">Misafir EKle</button>
+    <button class="btn btn-primary">Misafir Güncelle</button>
 
 </form>
 

@@ -1,5 +1,6 @@
 ﻿using HotelProject.BusinessLayer.Abstract;
 using HotelProject.DataAccessLayer.Abstarct;
+using HotelProject.DataAccessLayer.EntitiyFramework;
 using HotelProject.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -30,7 +31,7 @@ namespace HotelProject.BusinessLayer.Concrete
 
         public List<Contact> TGetList()
         {
-            throw new NotImplementedException();
+            return _contactDal.GetList();
         }
 
         public void TInsert(Contact t)
