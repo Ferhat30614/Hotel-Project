@@ -41,6 +41,7 @@ namespace HotelProject.WebUI.Controllers
         {
             return PartialView();
         }
+
         public PartialViewResult SideBarAdminContactCategoryPartial()
         {
             return PartialView();
@@ -101,10 +102,13 @@ namespace HotelProject.WebUI.Controllers
 
         }
 
+       
+        public IActionResult MessageDetails(int id)
+        {
 
+            return View();
 
-
-
+        }
 
 
 
