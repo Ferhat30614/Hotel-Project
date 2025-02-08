@@ -1,4 +1,6 @@
-﻿using HotelProject.WebUI.Models.Staff;
+﻿using HotelProject.WebUI.Dtos.SendMessageDto;
+using HotelProject.WebUI.Dtos.StaffDto;
+using HotelProject.WebUI.Models.Staff;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
@@ -23,7 +25,7 @@ namespace HotelProject.WebUI.Controllers
             {
 
                 var jsonData=await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<StaffViewModel>>(jsonData);
+                var values = JsonConvert.DeserializeObject<List<ResultStaffDto>>(jsonData);
                 return View(values);
 
             }

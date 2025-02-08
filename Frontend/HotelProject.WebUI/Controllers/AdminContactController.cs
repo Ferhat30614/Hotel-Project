@@ -1,6 +1,7 @@
 ﻿using HotelProject.DataAccessLayer.Migrations;
 using HotelProject.WebUI.Dtos.ContactDto;
 using HotelProject.WebUI.Dtos.SendMessageDto;
+using HotelProject.WebUI.Models.Staff;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
@@ -34,6 +35,8 @@ namespace HotelProject.WebUI.Controllers
             return View();
         }
 
+
+
         public PartialViewResult SideBarAdminContactPartial()
         {
             return PartialView();
@@ -41,6 +44,23 @@ namespace HotelProject.WebUI.Controllers
         public PartialViewResult SideBarAdminContactCategoryPartial()
         {
             return PartialView();
+        }
+
+
+        public async Task<IActionResult> SendBox()
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("http://localhost:5045/api/SendMessage");
+
+            if (responseMessage.IsSuccessStatusCode)
+            {
+
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<ResultSendMessageDto>>(jsonData);
+                return View(values);
+
+            }
+            return View();
         }
 
 
