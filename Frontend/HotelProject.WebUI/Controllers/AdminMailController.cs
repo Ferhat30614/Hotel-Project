@@ -41,6 +41,10 @@ namespace HotelProject.WebUI.Controllers
             client.Send(mimeMessage);
             client.Disconnect(true);
 
+
+
+            //istersen burada  sendmesaage tablona göderdiğin mesajı kaudetme işlemlerini yapabilirsin...
+
             return View();  
 
 
