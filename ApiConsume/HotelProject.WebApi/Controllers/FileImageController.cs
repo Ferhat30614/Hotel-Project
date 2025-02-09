@@ -8,7 +8,6 @@ namespace HotelProject.WebApi.Controllers
     public class FileImageController : ControllerBase
     {
 
-
         [HttpPost]
         public async Task<IActionResult> UploadImage([FromForm] IFormFile file)
         {
@@ -20,9 +19,6 @@ namespace HotelProject.WebApi.Controllers
             return Created("",file);
 
         }
-
-
-
 
     }
 
