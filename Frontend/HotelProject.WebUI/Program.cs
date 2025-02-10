@@ -58,8 +58,14 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
 }
+
+
+app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404" ,"?code={0}");
+app.UseHttpsRedirection();  
+app.UseStaticFiles();
 app.UseStaticFiles();
 app.UseAuthentication();
+
 
 app.UseRouting();
 
