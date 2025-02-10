@@ -46,12 +46,13 @@ namespace HotelProject.WebApi.Controllers
         }
 
 
-        [HttpGet("deneme")]
-        public IActionResult deneme()
+        [HttpGet("GetContactCount")]
+        public IActionResult GetContactCount()
         {
-            Context context = new Context();
-            var value = context.Contacts.Count();
-            return Ok(value);
+           var values=_contactService.TGetContectCount();   
+            return Ok(values);
         }
+
+
     }
 }
