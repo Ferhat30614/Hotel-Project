@@ -4,6 +4,7 @@ using HotelProject.DataAccessLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelProject.DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20250210162700_add_messageCategory")]
+    partial class add_messageCategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -236,7 +238,11 @@ namespace HotelProject.DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("MessageCategoryID")
+                    b.Property<string>("MessageCategoryID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MessageCategoryID1")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -249,7 +255,7 @@ namespace HotelProject.DataAccessLayer.Migrations
 
                     b.HasKey("ContactID");
 
-                    b.HasIndex("MessageCategoryID");
+                    b.HasIndex("MessageCategoryID1");
 
                     b.ToTable("Contacts");
                 });
@@ -591,7 +597,7 @@ namespace HotelProject.DataAccessLayer.Migrations
                 {
                     b.HasOne("HotelProject.EntityLayer.Concrete.MessageCategory", "MessageCategory")
                         .WithMany("Contacts")
-                        .HasForeignKey("MessageCategoryID")
+                        .HasForeignKey("MessageCategoryID1")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
