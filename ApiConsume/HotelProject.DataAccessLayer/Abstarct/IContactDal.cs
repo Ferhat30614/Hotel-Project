@@ -9,5 +9,8 @@ namespace HotelProject.DataAccessLayer.Abstarct
 {
     public  interface IContactDal:IGenericDal<Contact>
     {
+
+        public int GetContectCount();
+
     }
 }

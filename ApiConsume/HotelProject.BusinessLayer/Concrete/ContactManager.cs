@@ -29,6 +29,11 @@ namespace HotelProject.BusinessLayer.Concrete
             return _contactDal.GetById(id);
         }
 
+        public int TGetContectCount()
+        {
+            return _contactDal.GetContectCount();
+        }
+
         public List<Contact> TGetList()
         {
             return _contactDal.GetList();

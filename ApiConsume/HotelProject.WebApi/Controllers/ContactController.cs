@@ -1,4 +1,5 @@
 ﻿using HotelProject.BusinessLayer.Abstract;
+using HotelProject.DataAccessLayer.Concrete;
 using HotelProject.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -44,5 +45,13 @@ namespace HotelProject.WebApi.Controllers
             return Ok(values);
         }
 
+
+        [HttpGet("deneme")]
+        public IActionResult deneme()
+        {
+            Context context = new Context();
+            var value = context.Contacts.Count();
+            return Ok(value);
+        }
     }
 }
