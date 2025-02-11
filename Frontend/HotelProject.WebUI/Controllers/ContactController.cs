@@ -35,13 +35,13 @@ namespace HotelProject.WebUI.Controllers
                 var values = JsonConvert.DeserializeObject<List<ResultMessageCategoryDto>>(jsonData);
 
 
-                List<SelectListItem> values2 = (from x in values
-                                                select new SelectListItem
-                                                //{Text=x.MessageCategoryName, 
-                                                // Value=x.MessageCategoryID.ToString()
-                                                //}).ToList();
+                //List<SelectListItem> values2 = (from x in values
+                //                                select new SelectListItem
+                //                                //{Text=x.MessageCategoryName, 
+                //                                // Value=x.MessageCategoryID.ToString()
+                //                                //}).ToList();
 
-                ViewBag.v=values2;  
+                //ViewBag.v=values2;  
 
                 return View(values);
 
