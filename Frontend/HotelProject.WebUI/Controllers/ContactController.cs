@@ -36,7 +36,7 @@ namespace HotelProject.WebUI.Controllers
                                                 Text = x.MessageCategoryName,
                                                 Value = x.MessageCategoryID.ToString()
                                             }).ToList();
-            ViewData["MessageCategoryID"] = values2;
+            ViewBag.v = values2;
 
             return View();
 
