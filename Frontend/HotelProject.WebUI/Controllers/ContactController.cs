@@ -28,27 +28,20 @@ namespace HotelProject.WebUI.Controllers
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("http://localhost:5045/api/MessageCategory");
 
-            if (responseMessage.IsSuccessStatusCode)
-            {
-
-                var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultMessageCategoryDto>>(jsonData);
-
-
-                List<SelectListItem> values2 = (from x in values
-                                                select new SelectListItem
-                                                {Text=x.MessageCategoryName, 
-                                                 Value=x.MessageCategoryID.ToString()
-                                                }).ToList();
-
-                ViewBag.v=values2;  
-
-                return View(values);
-
-            }
-
+            var jsonData = await responseMessage.Content.ReadAsStringAsync();
+            var values = JsonConvert.DeserializeObject<List<ResultMessageCategoryDto>>(jsonData);
+            List<SelectListItem> values2 = (from x in values
+                                            select new SelectListItem
+                                            {
+                                                Text = x.MessageCategoryName,
+                                                Value = x.MessageCategoryID.ToString()
+                                            }).ToList();
+            ViewData["MessageCategoryID"] = values2;
 
             return View();
+
+
+
         }
 
 
