@@ -37,9 +37,9 @@ namespace HotelProject.WebUI.Controllers
 
                 List<SelectListItem> values2 = (from x in values
                                                 select new SelectListItem
-                                                {Text=x.MessageCategoryName, 
-                                                 Value=x.MessageCategoryID.ToString()
-                                                }).ToList();
+                                                //{Text=x.MessageCategoryName, 
+                                                // Value=x.MessageCategoryID.ToString()
+                                                //}).ToList();
 
                 ViewBag.v=values2;  
 
