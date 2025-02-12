@@ -28,8 +28,8 @@ namespace HotelProject.WebApi.Controllers
 
 
 
-        [HttpGet("GetList")]
-        public IActionResult GetList()
+        [HttpGet("UserList")]
+        public IActionResult UserList()
         {
             var values = _appUserService.TGetList();
 
