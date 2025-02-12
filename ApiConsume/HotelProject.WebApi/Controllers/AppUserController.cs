@@ -28,5 +28,14 @@ namespace HotelProject.WebApi.Controllers
 
 
 
+        [HttpGet("GetList")]
+        public IActionResult GetList()
+        {
+            var values = _appUserService.TGetList();
+
+            return Ok(values);
+        }
+
+
     }
 }
