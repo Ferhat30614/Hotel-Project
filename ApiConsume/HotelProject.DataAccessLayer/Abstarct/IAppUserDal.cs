@@ -10,6 +10,7 @@ namespace HotelProject.DataAccessLayer.Abstarct
     public interface IAppUserDal:IGenericDal<AppUser>
     {
         List<AppUser> UserListWithWorkLocation();
+        List<AppUser> UserListWithWorkLocations();
 
     }
 }
