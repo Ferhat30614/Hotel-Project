@@ -27,7 +27,12 @@ namespace HotelProject.WebApi.Controllers
                 Name=y.Name,
                 Surname=y.Surname,
                 WorkLocationID=y.WorkLocationID,
-                WorkLocationName=y.WorkLocation.WorkLocationName
+                WorkLocationName=y.WorkLocation.WorkLocationName,
+                City=y.City,
+                ImageUrl=y.ImageUrl,    
+                Country=y.Country,
+                Gender=y.Gender,      
+
             });
             return Ok(values);
 
