@@ -18,10 +18,12 @@ namespace HotelProject.DataAccessLayer.EntitiyFramework
 
         }
 
-
-
-
-
+        public int GetStaffCount()
+        {
+            Context context=new Context();
+            var values = context.Staffs.Count();
+            return values;
+        }
     }
 }
 

@@ -9,5 +9,6 @@ namespace HotelProject.DataAccessLayer.Abstarct
 {
     public interface IStaffDal:IGenericDal<Staff>
     {
+        int GetStaffCount();
     }
 }
