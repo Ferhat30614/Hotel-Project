@@ -5,6 +5,7 @@ using HotelProject.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -32,6 +33,13 @@ namespace HotelProject.DataAccessLayer.EntitiyFramework
             values.Status = "Onaylandı";
             context.SaveChanges();
 
+        }
+
+        public int GetBookingCount()
+        {
+           Context context=new Context();   
+            var values=context.Bookings.Count();
+            return values;  
         }
     }
 }

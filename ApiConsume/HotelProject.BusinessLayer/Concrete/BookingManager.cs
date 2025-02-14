@@ -1,6 +1,7 @@
 ﻿using HotelProject.BusinessLayer.Abstract;
 using HotelProject.DataAccessLayer.Abstarct;
 using HotelProject.DataAccessLayer.EntitiyFramework;
+using HotelProject.DataAccessLayer.Migrations;
 using HotelProject.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,12 @@ namespace HotelProject.BusinessLayer.Concrete
         public void TDelete(Booking t)
         {
             _bookingDal.Delete(t);
+        }
+
+        public int TGetBookingCount()
+        {
+            return _bookingDal.GetBookingCount();
+            
         }
 
         public Booking TGetById(int id)
