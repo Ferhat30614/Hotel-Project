@@ -15,5 +15,6 @@ namespace HotelProject.BusinessLayer.Abstract
 
         int TGetBookingCount();
 
+        List<Booking> TLast6Bookings();
     }
 }

@@ -20,6 +20,11 @@ namespace HotelProject.BusinessLayer.Concrete
             _bookingDal = bookingDal;
         }
 
+        public List<Booking> TLast6Bookings()
+        {
+            return _bookingDal.Last6Bookings();
+        }
+
         public void TBookingStatusChangeApproved(Booking booking)
         {
             _bookingDal.BookingStatusChangeApproved(booking);
@@ -55,6 +60,8 @@ namespace HotelProject.BusinessLayer.Concrete
         {
             _bookingDal.Insert(t);
         }
+
+       
 
         public void TUptade(Booking t)
         {
