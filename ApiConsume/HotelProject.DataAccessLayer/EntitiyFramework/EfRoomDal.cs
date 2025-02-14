@@ -17,9 +17,10 @@ namespace HotelProject.DataAccessLayer.EntitiyFramework
             
         }
 
-
-
-
-
+        public int GetRoomCount()
+        {
+            Context context=new Context();
+            return context.Rooms.Count();
+        }
     }
 }
