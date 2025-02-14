@@ -10,11 +10,13 @@ namespace HotelProject.WebApi.Controllers
     {
         private readonly IStaffService _staffService;
         private readonly IBookingService _bookingService;
+        private readonly IAppUserService _appUserService;
 
-        public DashboardWidgetsController(IStaffService staffService, IBookingService bookingService)
+        public DashboardWidgetsController(IStaffService staffService, IBookingService bookingService, IAppUserService appUserService)
         {
             _staffService = staffService;
             _bookingService = bookingService;
+            _appUserService = appUserService;
         }
 
         [HttpGet("StaffCount")]
@@ -32,6 +34,12 @@ namespace HotelProject.WebApi.Controllers
             return Ok(values);
         }
 
+        [HttpGet("AppUserCount")]
+        public IActionResult AppUserCount()
+        {
+            var values = _appUserService.TGetAppUserCount();
+            return Ok(values);
+        }
 
 
     }
