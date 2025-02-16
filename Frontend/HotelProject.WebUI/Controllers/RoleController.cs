@@ -19,10 +19,7 @@ namespace HotelProject.WebUI.Controllers
             var values=_roleManager.Roles.ToList(); 
             return View(values);
         }
-        /// <summary>
-        /// ////////////////
-        /// </summary>
-        /// <returns></returns>
+
 
 
         [HttpGet]
@@ -41,7 +38,11 @@ namespace HotelProject.WebUI.Controllers
             
             };
 
-            var result= await _roleManager.CreateAsync(appRole);    
+            var result= await _roleManager.CreateAsync(appRole);
+            if (result.Succeeded)
+            {
+                RedirectToAction("Index");
+            }
 
 
             return View();
