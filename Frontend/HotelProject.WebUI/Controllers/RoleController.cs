@@ -19,6 +19,10 @@ namespace HotelProject.WebUI.Controllers
             var values=_roleManager.Roles.ToList(); 
             return View(values);
         }
+        /// <summary>
+        /// ////////////////
+        /// </summary>
+        /// <returns></returns>
 
 
         [HttpGet]
