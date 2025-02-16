@@ -57,7 +57,33 @@ namespace HotelProject.WebUI.ViewComponents.Dashboard
 
             }
 
+
+
+            ResultLinkedFollowersDto resultLinkedFollowersDto = new ResultLinkedFollowersDto();
+            var client3 = new HttpClient();
+            var request3 = new HttpRequestMessage
+            {
+                Method = HttpMethod.Get,
+                RequestUri = new Uri("https://fresh-linkedin-profile-data.p.rapidapi.com/get-linkedin-profile-by-salesnavurl?linkedin_url=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fferhat-t%25C3%25BCre-570014277%2F&include_skills=false&include_certifications=false&include_publications=false&include_honors=false&include_volunteers=false&include_projects=false&include_patents=false&include_courses=false&include_organizations=false"),
+                Headers =
+    {
+        { "x-rapidapi-key", "6b99735555msh46fe40a0ee44ff2p1db52bjsnc05306989038" },
+        { "x-rapidapi-host", "fresh-linkedin-profile-data.p.rapidapi.com" },
+    },
+            };
+            using (var response3 = await client.SendAsync(request3))
+            {
+                response3.EnsureSuccessStatusCode();
+                var body3 = await response3.Content.ReadAsStringAsync();
+                resultLinkedFollowersDto = JsonConvert.DeserializeObject<ResultLinkedFollowersDto>(body3);
+                ViewBag.linkedFollowers = resultLinkedFollowersDto.data.follower_count;
+                ViewBag.linkedFollowing = resultLinkedFollowersDto.data.connection_count;
+
+
+
+            }
             return View();
+
         }
 
     }
