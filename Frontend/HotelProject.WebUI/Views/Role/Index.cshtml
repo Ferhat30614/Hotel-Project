@@ -11,6 +11,7 @@
 
 
 <table class="table table-bordered">
+
     <tr>
         <th>#</th>
         <th>Rol Adı</th>       
@@ -18,11 +19,8 @@
         <th>Güncelle</th>
     </tr>
 
-
     @foreach (var item in Model)
     {
-
-
         <tr>
             <td>@item.Id</td>
             <td>@item.Name</td>
@@ -30,6 +28,7 @@
             <td><a href="/Role/UpdateRole/@item.Id" class="btn mb-1 btn-rounded btn-outline-success">Güncelle</a></td>
         </tr>
     }
+
 </table>
 <br />
 <a href="/Role/AddRole/" class="btn mb-1 btn-rounded btn-outline-info">Yeni Rol Girişi</a>
