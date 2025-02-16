@@ -6,3 +6,16 @@
 
 <h1>AddRole</h1>
 
+@model HotelProject.WebUI.Models.Role.AddRoleViewModel
+
+<form method="post">
+
+    <label>Rol Adı</label>
+    <input type="text" asp-for="RoleName" class="form-control " />
+    
+    <br />
+
+    <button class="btn btn-primary">Rol EKle</button>
+
+</form>
+

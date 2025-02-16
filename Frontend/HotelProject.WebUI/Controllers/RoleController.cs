@@ -41,12 +41,19 @@ namespace HotelProject.WebUI.Controllers
             var result= await _roleManager.CreateAsync(appRole);
             if (result.Succeeded)
             {
-                RedirectToAction("Index");
+                return RedirectToAction("Index");
             }
-
-
             return View();
         }
+
+
+        public IActionResult DeleteRole(int id)
+        {
+            var values = _roleManager.Roles.FirstOrDefault(x=>x.Id==id);
+            _roleManager.DeleteAsync(values);
+            return RedirectToAction("Index");
+        }
+
 
 
 
