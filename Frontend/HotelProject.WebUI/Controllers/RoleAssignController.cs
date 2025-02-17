@@ -59,21 +59,21 @@ namespace HotelProject.WebUI.Controllers
             foreach (var item in roleAssignViewModels) {
 
 
-                if (item.RoleExist) { 
-                
-                    
-                
+                if (item.RoleExist) {
+
+                    await _userManager.AddToRoleAsync(user,item.RoleName);
+                                                    
+                }
+                else
+                {
+
+                    await _userManager.RemoveFromRoleAsync(user,item.RoleName);
+
                 }
             
             
             }
-
-            
-
-
-
-
-            return View(roleAssignViewModels);
+            return RedirectToAction("Index");   
         }
     }
 }
