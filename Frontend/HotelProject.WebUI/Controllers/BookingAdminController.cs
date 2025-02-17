@@ -42,6 +42,25 @@ namespace HotelProject.WebUI.Controllers
             return RedirectToAction("Index");
 
         }
-        
+
+        public async Task<IActionResult> CancelReservation(int id)
+        {
+
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"http://localhost:5045/api/Booking/BookingCancel?id={id}");
+
+            return RedirectToAction("Index");
+
+        }
+        public async Task<IActionResult> WaitReservation(int id)
+        {
+
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"http://localhost:5045/api/Booking/BookingWait?id={id}");
+
+            return RedirectToAction("Index");
+
+        }
+
     }
 }

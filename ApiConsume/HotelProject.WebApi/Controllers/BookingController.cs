@@ -11,7 +11,6 @@ namespace HotelProject.WebApi.Controllers
     public class BookingController : ControllerBase
     {
 
-
         private readonly IBookingService _bookingService;
 
 
@@ -92,6 +91,22 @@ namespace HotelProject.WebApi.Controllers
             return Ok();
         }
 
+
+        [HttpGet("BookingCancel")]
+        public IActionResult BookingCancel(int id)
+        {
+            _bookingService.TBookingStatusChangeCancel(id);
+
+            return Ok();
+        }
+
+        [HttpGet("BookingWait")]
+        public IActionResult BookingWait(int id)
+        {
+            _bookingService.TBookingStatusChangeWait(id);
+
+            return Ok();
+        }
 
     }
 
