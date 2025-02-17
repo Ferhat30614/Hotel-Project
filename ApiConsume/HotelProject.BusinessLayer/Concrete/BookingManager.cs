@@ -67,5 +67,10 @@ namespace HotelProject.BusinessLayer.Concrete
         {
             _bookingDal.Uptade(t);
         }
+
+        public void TBookingStatusChangeApproved3(int id)
+        {
+            _bookingDal.BookingStatusChangeApproved3(id);       
+        }
     }
 }
