@@ -13,8 +13,8 @@ namespace HotelProject.DataAccessLayer.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=DESKTOP-3SL2AV2\\FERHATMSSQLSERVE;User Id=sa;" +
-                "Password=ferhat123; initial catalog=ApiDb");
+            optionsBuilder.UseSqlServer("server=213.238.183.232\\MSSQLSERVER2022;user=admin63;" +
+                "password=*H6ht061h; database=apidb");
         }
 
         public DbSet<Room> Rooms { get; set; }
