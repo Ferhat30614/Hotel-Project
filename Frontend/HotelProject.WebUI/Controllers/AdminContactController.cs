@@ -1,7 +1,5 @@
-﻿using HotelProject.DataAccessLayer.Migrations;
-using HotelProject.WebUI.Dtos.ContactDto;
+﻿using HotelProject.WebUI.Dtos.ContactDto;
 using HotelProject.WebUI.Dtos.SendMessageDto;
-using HotelProject.WebUI.Models.Staff;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;

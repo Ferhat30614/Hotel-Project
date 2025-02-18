@@ -39,9 +39,6 @@ namespace HotelProject.WebUI.Controllers
             ViewBag.v = values2;
 
             return View();
-
-
-
         }
 
 
@@ -77,9 +74,6 @@ namespace HotelProject.WebUI.Controllers
                 
 
             }
-
-
-
 
         }
 
