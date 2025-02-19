@@ -11,7 +11,7 @@ namespace WebApiJwt.Controllers
     public class DefaultController : ControllerBase
     {
 
-        [HttpGet("[Action]")]//ikiside httpget ama iki actişonada aynı ismi versemde çalısıyor ama isim vermesem calısmıyor..//atıyom ikisi simsiz HttpGet olsa api calısmıyor
+        [HttpGet("[Action]")]//
         public IActionResult Test()
         {
             return Ok(new CreateToken().TokenCreate());
@@ -29,7 +29,7 @@ namespace WebApiJwt.Controllers
         [HttpGet("[Action]")]
         public IActionResult Test2()
         {
-            return Ok("Hoşgeldiniz...");
+            return Ok("Hoşgeldiniz kullanıcı ...");
         }
 
 
@@ -39,7 +39,7 @@ namespace WebApiJwt.Controllers
         [HttpGet("[Action]")]
         public IActionResult Test3()
         {
-            return Ok("Hoşgeldiniz...");
+            return Ok("Hoşgeldiniz admin veya visitor...");
         }
 
     }

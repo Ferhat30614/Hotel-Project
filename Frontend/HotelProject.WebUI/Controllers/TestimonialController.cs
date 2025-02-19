@@ -36,7 +36,7 @@ namespace HotelProject.WebUI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddTestimonial(TestimonialViewModel model)
+        public async Task<IActionResult> AddTestimonial(CreateTestimonialViewModel model)
         {
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(model);
