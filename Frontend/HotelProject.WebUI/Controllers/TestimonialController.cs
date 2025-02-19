@@ -74,7 +74,7 @@ namespace HotelProject.WebUI.Controllers
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<TestimonialViewModel>(jsonData);
+                var values = JsonConvert.DeserializeObject<UpdateTestimonialViewModel>(jsonData);
                 return View(values);
             }
 
@@ -82,7 +82,7 @@ namespace HotelProject.WebUI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateTestimonial(TestimonialViewModel model)
+        public async Task<IActionResult> UpdateTestimonial(UpdateTestimonialViewModel model)
         {
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(model);
