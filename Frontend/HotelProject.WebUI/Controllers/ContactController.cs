@@ -26,7 +26,7 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("http://localhost:5045/api/MessageCategory");
+            var responseMessage = await client.GetAsync("https://api.ferhatture.store/api/MessageCategory");
 
             var jsonData = await responseMessage.Content.ReadAsStringAsync();
             var values = JsonConvert.DeserializeObject<List<ResultMessageCategoryDto>>(jsonData);
@@ -61,7 +61,7 @@ namespace HotelProject.WebUI.Controllers
 
             StringContent stringContent = new StringContent(jsondata, Encoding.UTF8, "application/json");
 
-            var response = await client.PostAsync("http://localhost:5045/api/Contact", stringContent);
+            var response = await client.PostAsync("https://api.ferhatture.store/api/Contact", stringContent);
 
             if (response.IsSuccessStatusCode)
             {

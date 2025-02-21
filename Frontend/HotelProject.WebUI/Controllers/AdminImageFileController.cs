@@ -29,7 +29,7 @@ namespace HotelProject.WebUI.Controllers
             multipartFormDataContent.Add(byteArrayContent,"file",file.FileName);
 
             var httpclient = new HttpClient();
-            var response=await httpclient.PostAsync("http://localhost:5045/api/FileImage", multipartFormDataContent);
+            var response=await httpclient.PostAsync("https://api.ferhatture.store/api/FileImage", multipartFormDataContent);
 
             if (response.IsSuccessStatusCode)
             {

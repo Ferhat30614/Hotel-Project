@@ -18,7 +18,7 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("http://localhost:5045/api/About");
+            var responseMessage = await client.GetAsync("https://api.ferhatture.store/api/About");
 
             if (responseMessage.IsSuccessStatusCode)
             {
@@ -39,7 +39,7 @@ namespace HotelProject.WebUI.Controllers
 
             var client = _httpClientFactory.CreateClient();
 
-            var responseMessage = await client.GetAsync($"http://localhost:5045/api/About/{id}");
+            var responseMessage = await client.GetAsync($"https://api.ferhatture.store/api/About/{id}");
 
 
             if (responseMessage.IsSuccessStatusCode)
@@ -63,7 +63,7 @@ namespace HotelProject.WebUI.Controllers
             var dataJson = JsonConvert.SerializeObject(model);
             StringContent stringContent = new StringContent(dataJson, Encoding.UTF8, "application/json");
 
-            var responseMessage = await client.PutAsync($"http://localhost:5045/api/About/", stringContent);
+            var responseMessage = await client.PutAsync($"https://api.ferhatture.store/api/About/", stringContent);
 
             if (responseMessage.IsSuccessStatusCode)
             {

@@ -17,7 +17,7 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("http://localhost:5045/api/Guest");
+            var responseMessage = await client.GetAsync("https://api.ferhatture.store/api/Guest");
 
             if (responseMessage.IsSuccessStatusCode)
             {
@@ -53,7 +53,7 @@ namespace HotelProject.WebUI.Controllers
 
                 StringContent stringContent = new StringContent(jsondata, Encoding.UTF8, "application/json");
 
-                var responseMessage = await client.PostAsync("http://localhost:5045/api/Guest", stringContent);
+                var responseMessage = await client.PostAsync("https://api.ferhatture.store/api/Guest", stringContent);
 
                 if (responseMessage.IsSuccessStatusCode)
                 {
@@ -77,7 +77,7 @@ namespace HotelProject.WebUI.Controllers
 
             var client = _httpClientFactory.CreateClient();
 
-            var responseMessage = await client.DeleteAsync($"http://localhost:5045/api/Guest/{id}");
+            var responseMessage = await client.DeleteAsync($"https://api.ferhatture.store/api/Guest/{id}");
 
 
             if (responseMessage.IsSuccessStatusCode)
@@ -97,7 +97,7 @@ namespace HotelProject.WebUI.Controllers
 
             var client = _httpClientFactory.CreateClient();
 
-            var responseMessage = await client.GetAsync($"http://localhost:5045/api/Guest/{id}");
+            var responseMessage = await client.GetAsync($"https://api.ferhatture.store/api/Guest/{id}");
 
 
             if (responseMessage.IsSuccessStatusCode)
@@ -122,7 +122,7 @@ namespace HotelProject.WebUI.Controllers
                 var dataJson = JsonConvert.SerializeObject(model);
                 StringContent stringContent = new StringContent(dataJson, Encoding.UTF8, "application/json");
 
-                var responseMessage = await client.PutAsync($"http://localhost:5045/api/Guest/", stringContent);
+                var responseMessage = await client.PutAsync($"https://api.ferhatture.store/api/Guest/", stringContent);
 
                 if (responseMessage.IsSuccessStatusCode)
                 {

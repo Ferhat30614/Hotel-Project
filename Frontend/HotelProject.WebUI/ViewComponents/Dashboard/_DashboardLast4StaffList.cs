@@ -17,7 +17,7 @@ namespace HotelProject.WebUI.ViewComponents.Dashboard
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("http://localhost:5045/api/Staff/Last4Staff");
+            var responseMessage = await client.GetAsync("https://api.ferhatture.store/api/Staff/Last4Staff");
 
             if (responseMessage.IsSuccessStatusCode)
             {

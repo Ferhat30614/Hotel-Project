@@ -18,13 +18,13 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> Inbox()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("http://localhost:5045/api/Contact");
+            var responseMessage = await client.GetAsync("https://api.ferhatture.store/api/Contact");
 
             var client2 = _httpClientFactory.CreateClient();
-            var responseMessage2 = await client.GetAsync("  http://localhost:5045/api/Contact/GetContactCount");
+            var responseMessage2 = await client.GetAsync("  https://api.ferhatture.store/api/Contact/GetContactCount");
 
             var client3 = _httpClientFactory.CreateClient();
-            var responseMessage3 = await client.GetAsync(" http://localhost:5045/api/SendMessage/GetSendMessageCount");
+            var responseMessage3 = await client.GetAsync(" https://api.ferhatture.store/api/SendMessage/GetSendMessageCount");
 
 
             if (responseMessage.IsSuccessStatusCode)
@@ -69,7 +69,7 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> SendBox()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("http://localhost:5045/api/SendMessage");
+            var responseMessage = await client.GetAsync("https://api.ferhatture.store/api/SendMessage");
 
             if (responseMessage.IsSuccessStatusCode)
             {
@@ -106,7 +106,7 @@ namespace HotelProject.WebUI.Controllers
 
             StringContent stringContent = new StringContent(jsondata, Encoding.UTF8, "application/json");
 
-            var responseMessage = await client.PostAsync("http://localhost:5045/api/SendMessage", stringContent);
+            var responseMessage = await client.PostAsync("https://api.ferhatture.store/api/SendMessage", stringContent);
 
             if (responseMessage.IsSuccessStatusCode)
             {
@@ -128,7 +128,7 @@ namespace HotelProject.WebUI.Controllers
         {
             var client = _httpClientFactory.CreateClient();
 
-            var responseMessage = await client.GetAsync($"http://localhost:5045/api/SendMessage/{id}");
+            var responseMessage = await client.GetAsync($"https://api.ferhatture.store/api/SendMessage/{id}");
 
 
             if (responseMessage.IsSuccessStatusCode)
@@ -149,7 +149,7 @@ namespace HotelProject.WebUI.Controllers
         {
             var client = _httpClientFactory.CreateClient();
 
-            var responseMessage = await client.GetAsync($"http://localhost:5045/api/Contact/{id}");
+            var responseMessage = await client.GetAsync($"https://api.ferhatture.store/api/Contact/{id}");
 
 
             if (responseMessage.IsSuccessStatusCode)

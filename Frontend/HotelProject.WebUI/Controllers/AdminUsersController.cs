@@ -18,10 +18,11 @@ namespace HotelProject.WebUI.Controllers
 
 
 
+
         //public async Task<IActionResult> Index()
         //{
         //    var client = _httpClientFactory.CreateClient();
-        //    var responseMessage = await client.GetAsync("http://localhost:5045/api/AppUser");
+        //    var responseMessage = await client.GetAsync("https://api.ferhatture.store/api/AppUser");
 
         //    if (responseMessage.IsSuccessStatusCode)
         //    {
@@ -43,7 +44,7 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> UserList()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("http://localhost:5045/api/AppUser/UserList");
+            var responseMessage = await client.GetAsync("https://api.ferhatture.store/api/AppUser/UserList");
 
             if (responseMessage.IsSuccessStatusCode)
             {

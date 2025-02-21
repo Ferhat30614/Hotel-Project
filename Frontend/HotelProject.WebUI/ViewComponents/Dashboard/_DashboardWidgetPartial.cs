@@ -16,27 +16,27 @@ namespace HotelProject.WebUI.ViewComponents.Dashboard
         {
 
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("http://localhost:5045/api/DashboardWidgets/StaffCount");
+            var responseMessage = await client.GetAsync("https://api.ferhatture.store/api/DashboardWidgets/StaffCount");
             
             var jsonData = await responseMessage.Content.ReadAsStringAsync();
             ViewBag.staffCount = jsonData;
 
 
             var client2 = _httpClientFactory.CreateClient();
-            var responseMessage2 = await client.GetAsync("http://localhost:5045/api/DashboardWidgets/BookingCount");
+            var responseMessage2 = await client.GetAsync("https://api.ferhatture.store/api/DashboardWidgets/BookingCount");
 
             var jsonData2 = await responseMessage2.Content.ReadAsStringAsync();
             ViewBag.bookingCount = jsonData2;
 
             var client3 = _httpClientFactory.CreateClient();
-            var responseMessage3 = await client.GetAsync("http://localhost:5045/api/DashboardWidgets/AppUserCount");
+            var responseMessage3 = await client.GetAsync("https://api.ferhatture.store/api/DashboardWidgets/AppUserCount");
 
             var jsonData3 = await responseMessage3.Content.ReadAsStringAsync();
             ViewBag.appUserCount = jsonData3;
 
 
             var client4 = _httpClientFactory.CreateClient();
-            var responseMessage4 = await client.GetAsync("http://localhost:5045/api/DashboardWidgets/RoomCount");
+            var responseMessage4 = await client.GetAsync("https://api.ferhatture.store/api/DashboardWidgets/RoomCount");
 
             var jsonData4 = await responseMessage4.Content.ReadAsStringAsync();
             ViewBag.roomCount = jsonData4;

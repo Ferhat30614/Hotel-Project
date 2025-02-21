@@ -17,7 +17,7 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("http://localhost:5045/api/Booking");
+            var responseMessage = await client.GetAsync("https://api.ferhatture.store/api/Booking");
 
             if (responseMessage.IsSuccessStatusCode)
             {            
@@ -35,7 +35,7 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> UpdateBooking(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"http://localhost:5045/api/Booking/{id}");
+            var responseMessage = await client.GetAsync($"https://api.ferhatture.store/api/Booking/{id}");
 
             if (responseMessage.IsSuccessStatusCode)
             {
@@ -55,7 +55,7 @@ namespace HotelProject.WebUI.Controllers
             var dataJson = JsonConvert.SerializeObject(updateBookingDto);
             StringContent stringContent = new StringContent(dataJson, Encoding.UTF8, "application/json");
 
-            var responseMessage = await client.PutAsync("http://localhost:5045/api/Booking/UpdateBooking", stringContent);
+            var responseMessage = await client.PutAsync("https://api.ferhatture.store/api/Booking/UpdateBooking", stringContent);
 
             if (responseMessage.IsSuccessStatusCode)
             {
@@ -69,7 +69,7 @@ namespace HotelProject.WebUI.Controllers
         {
             
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"http://localhost:5045/api/Booking/BookingApproved?id={id}");
+            var responseMessage = await client.GetAsync($"https://api.ferhatture.store/api/Booking/BookingApproved?id={id}");
 
             return RedirectToAction("Index");
 
@@ -79,7 +79,7 @@ namespace HotelProject.WebUI.Controllers
         {
 
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"http://localhost:5045/api/Booking/BookingCancel?id={id}");
+            var responseMessage = await client.GetAsync($"https://api.ferhatture.store/api/Booking/BookingCancel?id={id}");
 
             return RedirectToAction("Index");
 
@@ -87,7 +87,7 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> WaitReservation(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"http://localhost:5045/api/Booking/BookingWait?id={id}");
+            var responseMessage = await client.GetAsync($"https://api.ferhatture.store/api/Booking/BookingWait?id={id}");
             return RedirectToAction("Index");
         }
 

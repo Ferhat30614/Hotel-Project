@@ -8,9 +8,6 @@ namespace HotelProject.WebUI.Controllers
     {
         public IActionResult Error404()
         {
-
-
-
             return View();
         }
     }

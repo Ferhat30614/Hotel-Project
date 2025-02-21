@@ -73,7 +73,7 @@ namespace HotelProject.WebUI.Controllers
 
             StringContent stringContent = new StringContent(jsondata, Encoding.UTF8, "application/json");
 
-            var responseMessage = await client2.PostAsync("http://localhost:5045/api/SendMessage", stringContent);
+            var responseMessage = await client2.PostAsync("https://api.ferhatture.store/api/SendMessage", stringContent);
 
             if (responseMessage.IsSuccessStatusCode)
             {

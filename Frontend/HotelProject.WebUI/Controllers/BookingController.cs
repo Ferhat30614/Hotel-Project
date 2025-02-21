@@ -40,7 +40,7 @@ namespace HotelProject.WebUI.Controllers
 
             StringContent stringContent = new StringContent(jsondata, Encoding.UTF8, "application/json");
 
-             var  response =await client.PostAsync("http://localhost:5045/api/Booking", stringContent);
+             var  response =await client.PostAsync("https://api.ferhatture.store/api/Booking", stringContent);
 
             if (response.IsSuccessStatusCode){
                 return RedirectToAction("Index", "Default");

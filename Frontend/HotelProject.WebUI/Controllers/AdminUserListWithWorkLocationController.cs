@@ -18,7 +18,7 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> UserList()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("http://localhost:5045/api/AppUserWorkLocation");
+            var responseMessage = await client.GetAsync("https://api.ferhatture.store/api/AppUserWorkLocation");
 
             if (responseMessage.IsSuccessStatusCode)
             {
