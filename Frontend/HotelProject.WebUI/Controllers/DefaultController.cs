@@ -40,17 +40,15 @@ namespace HotelProject.WebUI.Controllers
 
             StringContent stringContent = new StringContent(jsondata, Encoding.UTF8, "application/json");
 
-            var responseMessage = await client.PostAsync("https://ferhatture.store/api/Subscribe", stringContent);
+            var responseMessage = await client.PostAsync("https://api.ferhatture.store/api/Subscribe", stringContent);
 
             if (responseMessage.IsSuccessStatusCode)
             {
-                Console.WriteLine("Sayfa yönlendirmesi tamam hacı....");
 
                 return RedirectToAction("Index", "Default");
 
             }
 
-            Console.WriteLine("Hata var dostum partial viewew geldi");
             return PartialView(); 
 
         }

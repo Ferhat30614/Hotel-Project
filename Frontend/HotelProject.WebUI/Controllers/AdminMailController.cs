@@ -1,13 +1,25 @@
-﻿using HotelProject.WebUI.Models.Mail;
+﻿using HotelProject.DataAccessLayer.Migrations;
+using HotelProject.WebUI.Dtos.SendMessageDto;
+using HotelProject.WebUI.Models.Mail;
 using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using MimeKit;
+using Newtonsoft.Json;
+using System.Net.Http;
+using System.Text;
 
 namespace HotelProject.WebUI.Controllers
 {
     public class AdminMailController : Controller
     {
+        private readonly IHttpClientFactory _httpClientFactory;
+
+        public AdminMailController(IHttpClientFactory httpClientFactory)
+        {
+            _httpClientFactory = httpClientFactory;
+        }
+
         [HttpGet]
         public IActionResult Index()
         {
@@ -17,7 +29,7 @@ namespace HotelProject.WebUI.Controllers
 
 
         [HttpPost]
-        public IActionResult Index(AdminMailViewModel model)
+        public async Task<IActionResult> Index(AdminMailViewModel model)
         {
             MimeMessage mimeMessage = new MimeMessage();
 
@@ -37,7 +49,7 @@ namespace HotelProject.WebUI.Controllers
 
             SmtpClient client = new SmtpClient();
             client.Connect("smtp.gmail.com",587,false);
-            client.Authenticate("ferhat123.ftr69@gmail.com", "ttlrmbhymfnyfnbm");
+            client.Authenticate("ferhat123.ftr69@gmail.com", "abppswmnfbuqelnm");
             client.Send(mimeMessage);
             client.Disconnect(true);
 
@@ -45,7 +57,32 @@ namespace HotelProject.WebUI.Controllers
 
             //istersen burada  sendmesaage tablona göderdiğin mesajı kaudetme işlemlerini yapabilirsin...
 
-            return View();  
+            CreateSendMessageDto createSendMessage = new CreateSendMessageDto();  
+            createSendMessage.SenderMail = "ferhat123.ftr69@gmail.com";
+            createSendMessage.SenderName = "HotelierAdmin";
+            createSendMessage.Date = DateTime.Parse(DateTime.Now.ToShortDateString());
+            createSendMessage.ReceiverMail =model.ReceiverMail;
+            createSendMessage.ReceiverName = model.Name; 
+            createSendMessage.Content=model.Body;
+            createSendMessage.Title = model.Subject;
+
+
+            var client2 = _httpClientFactory.CreateClient();
+
+            var jsondata = JsonConvert.SerializeObject(createSendMessage);
+
+            StringContent stringContent = new StringContent(jsondata, Encoding.UTF8, "application/json");
+
+            var responseMessage = await client2.PostAsync("http://localhost:5045/api/SendMessage", stringContent);
+
+            if (responseMessage.IsSuccessStatusCode)
+            {
+
+                return RedirectToAction( "SendBox", "AdminContact");
+
+            }
+
+            return View();
 
 
 

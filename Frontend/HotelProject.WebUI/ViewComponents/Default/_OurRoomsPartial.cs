@@ -17,7 +17,7 @@ namespace HotelProject.WebUI.ViewComponents.Default
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://ferhatture.store/api/Room");
+            var responseMessage = await client.GetAsync("https://api.ferhatture.store/api/Room");
 
             if (responseMessage.IsSuccessStatusCode)
             {
