@@ -31,8 +31,7 @@ namespace HotelProject.WebApi.Controllers
                 City=y.City,
                 ImageUrl=y.ImageUrl,    
                 Country=y.Country,
-                Gender=y.Gender,      
-
+                Gender=y.Gender,    
             });
             return Ok(values);
 
